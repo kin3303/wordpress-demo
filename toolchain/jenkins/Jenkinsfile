@@ -4,8 +4,7 @@ node {
         checkout scm
     }
     stage('test with a DB') {
-        if (env.DO_TEST == 'true') {               
-            }              
+        if (env.DO_TEST == 'true') {
         }
     }
     stage('docker build/push') {
