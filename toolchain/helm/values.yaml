@@ -1,3 +1,3 @@
 name: wordpress
-
-namespace: openshift
+namespace: wordpress-demo
+tag_name: latest
