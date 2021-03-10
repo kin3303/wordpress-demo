@@ -3,3 +3,4 @@ namespace: wordpress-demo
 tag_name: latest
 provisioner: efs.csi.aws.com
 storageclass: efs-sc
+filesystemid: fs-f51bc395
