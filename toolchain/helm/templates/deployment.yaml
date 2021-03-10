@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress-mysql
-  namespace: eks-course-efs
+  namespace: {{ .Values.namespace | quote }}
   labels:
     app: wordpress
 spec:
@@ -42,8 +42,8 @@ spec:
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: wordpress
-  namespace: eks-course-efs
+  name: {{ .Values.name | quote }}
+  namespace: {{ .Values.namespace | quote }}
   labels:
     app: wordpress
 spec:
