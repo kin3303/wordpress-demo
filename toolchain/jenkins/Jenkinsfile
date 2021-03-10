@@ -5,8 +5,7 @@ node {
     }
     stage('test with a DB') {
         if (env.DO_TEST == 'true') {               
-            }                                   
-            mysql.stop()                   
+            }              
         }
     }
     stage('docker build/push') {
