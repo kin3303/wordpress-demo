@@ -1,1 +1,26 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-wordpress
+  namespace: eks-course-efs
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 10Gi
 
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-mysql
+  namespace: eks-course-efs
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 10Gi
