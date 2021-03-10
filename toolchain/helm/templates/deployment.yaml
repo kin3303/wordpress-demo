@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress-mysql {{ print .Values.name "-mysql" | quote }}
+  name: {{ print .Values.name "-mysql" | quote }}
   namespace: {{ .Values.namespace | quote }}
   labels:
     app: {{ .Values.name | quote }}
