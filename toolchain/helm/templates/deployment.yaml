@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress-mysql
+  name: wordpress-mysql {{ print .Values.name "-mysql" | quote }}
   namespace: {{ .Values.namespace | quote }}
   labels:
     app: {{ .Values.name | quote }}
 spec:
   selector:
     matchLabels:
-      app: wordpress
+      app: {{ .Values.name | quote }}
       tier: mysql
   strategy:
     type: Recreate
