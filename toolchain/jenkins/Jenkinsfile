@@ -1,1 +1,19 @@
-
+node {
+    def commit_id
+    stage('preparation') {
+        checkout scm
+    }
+    stage('test with a DB') {
+        if (env.DO_TEST == 'true') {               
+            }                                   
+            mysql.stop()                   
+        }
+    }
+    stage('docker build/push') {
+        if (env.DO_PUBLISH == 'true') {
+            docker.withRegistry('https://registry.idtplateer.com', 'nexus-registry') { 
+                def app = docker.build("${env.APP_IMAGE_NAME}:${env.APP_IMAGE_TAG}", '.').push()
+            }
+        }                                  
+    }
+}
