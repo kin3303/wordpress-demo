@@ -4,7 +4,7 @@ metadata:
   name: wordpress-mysql
   namespace: {{ .Values.namespace | quote }}
   labels:
-    app: wordpress
+    app: {{ .Values.name | quote }}
 spec:
   selector:
     matchLabels:
@@ -15,7 +15,7 @@ spec:
   template:
     metadata:
       labels:
-        app: wordpress
+        app: {{ .Values.name | quote }}
         tier: mysql
     spec:
       containers:
@@ -45,23 +45,23 @@ metadata:
   name: {{ .Values.name | quote }}
   namespace: {{ .Values.namespace | quote }}
   labels:
-    app: wordpress
+    app: {{ .Values.name | quote }}
 spec:
   selector:
     matchLabels:
-      app: wordpress
+      app: {{ .Values.name | quote }}
       tier: frontend
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
+        app: {{ .Values.name | quote }}
         tier: frontend
     spec:
       containers:
-      - image: wordpress:4.8-apache
-        name: wordpress
+      - image: {{ print "registry.idtplateer.com/" .Values.name ":" .Values.tag_name | quote }}
+        name: {{ .Values.name | quote }}
         env:
         - name: WORDPRESS_DB_HOST
           value: wordpress-mysql
@@ -72,7 +72,7 @@ spec:
               key: password
         ports:
         - containerPort: 80
-          name: wordpress
+          name: {{ .Values.name | quote }}
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: /var/www/html
