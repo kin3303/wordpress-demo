@@ -1,1 +1,9 @@
-
+name: wordpress
+version: 0.1
+description: wordpress deploy test by helm and CBCD
+keywords: 
+- nodejs
+- testapp
+home: https://cloudbees.devops.mousoft.co.kr
+sources:
+- https://github.com/kin3303/wordpress-demo.git
