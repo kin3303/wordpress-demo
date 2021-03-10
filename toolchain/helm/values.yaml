@@ -4,3 +4,5 @@ tag_name: latest
 provisioner: efs.csi.aws.com
 storageclass: efs-sc
 filesystemid: fs-f51bc395
+pv1: pv-1
+pv2: pv-2
