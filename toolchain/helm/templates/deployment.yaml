@@ -72,12 +72,12 @@ spec:
               key: password
         ports:
         - containerPort: 80
-          name: {{ .Values.name | quote }}
-        imagePullSecrets:
-        - name: nexus           
+          name: {{ .Values.name | quote }}    
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: /var/www/html
+      imagePullSecrets:
+      - name: nexus
       volumes:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:
